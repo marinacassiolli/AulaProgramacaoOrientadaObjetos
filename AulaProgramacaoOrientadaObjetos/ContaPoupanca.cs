@@ -5,15 +5,11 @@ using System.Text;
 namespace AulaProgramacaoOrientadaObjetos
 {
     // Herança
-    public class ContaPoupanca: Conta
+    public class ContaPoupanca : Conta
     {
-        // Polimorfismo
-        public override double Sacar(double quantidade)
+        public override double ObterPercentualTaxa()
         {
-            int taxaSaque = 3;
-            double valorTotalSaque = quantidade + taxaSaque;
-
-            return Saldo -= valorTotalSaque;
+            return 3;
         }
     }
 }

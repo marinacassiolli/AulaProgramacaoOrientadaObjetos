@@ -7,13 +7,17 @@ namespace AulaProgramacaoOrientadaObjetos
     // Herança
     public class ContaCorrente : Conta
     {
-        // Polimorfismo
         public override double Sacar(double quantidade)
         {
-            int taxaSaque = 5;
-            double valorTotalSaque = quantidade + taxaSaque;
+            var taxa = ObterPercentualTaxa();
+            var valorTaxa = quantidade * (taxa / 100);
 
-            return Saldo -= valorTotalSaque;
+            return Saldo -= (quantidade - valorTaxa);
+        }
+
+        public override double ObterPercentualTaxa()
+        {
+            return 5;
         }
     }
 }

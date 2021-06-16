@@ -4,8 +4,7 @@ using System.Text;
 
 namespace AulaProgramacaoOrientadaObjetos
 {
-    // Abstração
-    public abstract class Conta
+    public abstract class Conta : IConta
     {
         public Conta()
         {
@@ -13,11 +12,19 @@ namespace AulaProgramacaoOrientadaObjetos
             DataAbertura = DateTime.Now;
         }
 
+        public Conta(string agencia)
+        {
+            Agencia = agencia;
+            NumeroConta = Guid.NewGuid().ToString();
+            DataAbertura = DateTime.Now;
+        }
+
         public string Agencia { get; set; }
-        // Encapsulamento
         public string NumeroConta { get; private set; }
         public double Saldo { get; protected set; }
         public DateTime DataAbertura { get; private set; }
+
+        public abstract double ObterPercentualTaxa();
 
         public virtual double Sacar(double quantidade)
         {
