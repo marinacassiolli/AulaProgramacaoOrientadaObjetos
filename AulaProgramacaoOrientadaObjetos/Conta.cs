@@ -12,13 +12,6 @@ namespace AulaProgramacaoOrientadaObjetos
             DataAbertura = DateTime.Now;
         }
 
-        public Conta(string agencia)
-        {
-            Agencia = agencia;
-            NumeroConta = Guid.NewGuid().ToString();
-            DataAbertura = DateTime.Now;
-        }
-
         public string Agencia { get; set; }
         public string NumeroConta { get; private set; }
         public double Saldo { get; protected set; }
@@ -28,12 +21,17 @@ namespace AulaProgramacaoOrientadaObjetos
 
         public virtual double Sacar(double quantidade)
         {
-            return Saldo -= quantidade;
+            return this.Saldo -= quantidade;
         }
 
         public double Depositar(double quantidade)
         {
-            return Saldo += quantidade;
+            return this.Saldo += quantidade;
+        }
+
+        public string ObterInformacoes()
+        {
+            return $"Agência: {this.Agencia} | Conta: {this.NumeroConta} | Data de Abertura: {this.DataAbertura} | Saldo: {this.Saldo}";
         }
     }
 }

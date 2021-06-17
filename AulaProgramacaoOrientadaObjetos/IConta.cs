@@ -5,5 +5,6 @@
         double Sacar(double quantidade);
         double Depositar(double quantidade);
         double ObterPercentualTaxa();
+        string ObterInformacoes();
     }
 }
