@@ -7,9 +7,9 @@ namespace AulaProgramacaoOrientadaObjetos
     // Herança
     public class ContaCorrente : Conta
     {
-        public ContaCorrente(string agencia)
+        public ContaCorrente(string agencia) : base(agencia)
         {
-            this.Agencia = agencia;
+            
         }
 
         public override double Sacar(double quantidade)

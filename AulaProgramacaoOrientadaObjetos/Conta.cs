@@ -12,6 +12,13 @@ namespace AulaProgramacaoOrientadaObjetos
             DataAbertura = DateTime.Now;
         }
 
+        public Conta(string agencia)
+        {
+            Agencia = agencia;
+            NumeroConta = Guid.NewGuid().ToString();
+            DataAbertura = DateTime.Now;
+        }
+
         public string Agencia { get; set; }
         public string NumeroConta { get; private set; }
         public double Saldo { get; protected set; }
