@@ -2,9 +2,8 @@
 {
     public interface IConta
     {
-        double Sacar(double quantidade);
-        double Depositar(double quantidade);
+        void Sacar(double quantidade);
+        void Depositar(double quantidade);
         double ObterPercentualTaxa();
-        string ObterInformacoes();
     }
 }

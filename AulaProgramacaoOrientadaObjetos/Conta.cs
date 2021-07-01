@@ -26,19 +26,30 @@ namespace AulaProgramacaoOrientadaObjetos
 
         public abstract double ObterPercentualTaxa();
 
-        public virtual double Sacar(double quantidade)
+        public virtual void Sacar(double quantidade)
         {
-            return this.Saldo -= quantidade;
+            if (quantidade <= 0)
+            {
+                Console.WriteLine("Quantidade a ser sacada deve ser maior que zero!");
+            }
+            else if (quantidade > Saldo)
+            {
+                Console.WriteLine("Saldo insuficiente para o saque!");
+            }
+            else
+            {
+                Console.WriteLine($"Novo saldo após saque: {Saldo -= quantidade}");
+            }
         }
 
-        public double Depositar(double quantidade)
+        public void Depositar(double quantidade)
         {
-            return this.Saldo += quantidade;
+            Console.WriteLine($"Novo saldo após depósito: {Saldo += quantidade}");
         }
 
-        public string ObterInformacoes()
+        public override string ToString()
         {
-            return $"Agência: {this.Agencia} | Conta: {this.NumeroConta} | Data de Abertura: {this.DataAbertura} | Saldo: {this.Saldo}";
+            return $"Agência: {Agencia} | Conta: {NumeroConta} | Data de Abertura: {DataAbertura} | Saldo: {Saldo}";
         }
     }
 }
